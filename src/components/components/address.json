@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_components_addresses",
+  "info": {
+    "displayName": "Address"
+  },
+  "options": {},
+  "attributes": {
+    "username": {
+      "type": "string",
+      "required": false
+    },
+    "address": {
+      "type": "text",
+      "required": false
+    },
+    "city": {
+      "type": "string",
+      "required": false
+    },
+    "state": {
+      "type": "string",
+      "required": false
+    },
+    "postalCode": {
+      "type": "string",
+      "required": false
+    },
+    "country": {
+      "type": "string",
+      "required": false
+    },
+    "type": {
+      "type": "string"
+    },
+    "emails": {
+      "type": "component",
+      "component": "components.email",
+      "repeatable": true
+    },
+    "phones": {
+      "type": "component",
+      "component": "components.phone",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

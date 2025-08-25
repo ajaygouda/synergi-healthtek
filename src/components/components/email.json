@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_components_emails",
+  "info": {
+    "displayName": "Email"
+  },
+  "options": {},
+  "attributes": {
+    "emailId": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

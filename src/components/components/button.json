@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_components_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "ctaText": {
+      "type": "string",
+      "required": true
+    },
+    "ctaLink": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
