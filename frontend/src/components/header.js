@@ -71,7 +71,7 @@ export const Header = ({ data }) => {
                             </div>
                         </div>
                         :
-                        <Link href={data?.cta?.ctaLink} type="button" className="cursor-pointer text-white bg-primary hover:bg-primary-600 transition font-medium rounded-full text-base px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700">{data.cta.ctaText}</Link>
+                        <Link href={data?.cta?.ctaLink} type="button" className="cursor-pointer text-white bg-primary hover:bg-primary-600 transition font-medium rounded-full text-base px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700">{data?.cta?.ctaText}</Link>
                     }
                     <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                         <span className="sr-only">Open main menu</span>
