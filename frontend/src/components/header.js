@@ -82,7 +82,7 @@ export const Header = ({ data }) => {
                 </div>
                 <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                     <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        {data.menus.map((item, index) => (
+                        {data?.menus?.map((item, index) => (
                             <li key={index} className="mr-0">
                                 <Link href={`/${item.name.toLowerCase()}`} className={`${activeMenu === item.name.toLowerCase() ? "dark:text-gray-100 text-gray-700" : "dark:text-gray-300 text-gray-400"} block py-2 px-3 transition text-base font-bold  hover:text-gray-900 dark:hover:text-gray-100 uppercase tracking-wider`} aria-current="page">{item.name}</Link>
                             </li>
