@@ -16,7 +16,7 @@ export const Footer = ({ data }) => {
         <div className="border-t-1 border-t-gray-200 dark:border-t-gray-500">
             <div className='container-1256'>
                 <div className="pt-10 md:pt-20 px-4 md:px-0 flex flex-col gap-6">
-                    <img style={{ height: '120px', width: '120px' }} src={`${PORT}/${data.logo.url}`} />
+                    <img style={{ height: '120px', width: '120px' }} src={`${PORT}/${data?.logo?.url}`} />
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full flex gap-4">
                             {socials.map((social, index) => (
@@ -27,20 +27,20 @@ export const Footer = ({ data }) => {
                         </div>
                         <div className="w-full flex flex-col gap-4">
                             <div className="flex mb-4 flex-col md:flex-row justify-between">
-                                {data.menus.map((item, index) => (
+                                {data?.menus?.map((item, index) => (
                                     <Link key={index} href={`/${item.name.toLowerCase()}`} className={`${activeMenu === item.name.toLowerCase() ? "dark:text-gray-100 text-gray-700" : "dark:text-gray-300 text-gray-400"} block py-2 transition text-base font-bold  hover:text-gray-900 dark:hover:text-gray-100 uppercase tracking-wider`} aria-current="page">{item.name}</Link>
                                 ))}
                             </div>
                             <div className="md:w-[70%] w-[100%] md:text-right ml-auto flex flex-col gap-3 text-gray-500 dark:text-gray-200">
                                 <p>{`${data.address.address}, Pincode-${data.address.postalCode}, ${data.address.city}, ${data.address.state}, ${data.address.country}`}</p>
                                 <p className="flex md:justify-end gap-2"><svg className="h-7 w-7 fill-current" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99" /></svg>
-                                    {data.address?.phones?.map((ph, index) => (
+                                    {data?.address?.phones?.map((ph, index) => (
                                         <span key={index}>{ph.number}{index === data.address?.phones?.length - 1 ? "" : ","}</span>
                                     ))}
                                 </p>
                                 <p className="flex md:justify-end gap-2">
                                     <svg className="h-7 w-7 fill-current" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4-8 5-8-5V6l8 5 8-5z" /></svg>
-                                    {data.address?.emails?.map((mail, index) => (
+                                    {data?.address?.emails?.map((mail, index) => (
                                         <span key={index}>{mail.emailId}{index === data.address?.emails?.length - 1 ? "" : ","}</span>
                                     ))}
                                 </p>
@@ -48,7 +48,7 @@ export const Footer = ({ data }) => {
                         </div>
                     </div>
                     <div className="py-6 border-t-1 border-t-gray-200 dark:border-t-gray-500 text-gray-500 dark:text-gray-200">
-                        {data.copyright}
+                        {data?.copyright}
                     </div>
                 </div>
             </div>
