@@ -35,8 +35,8 @@ export const Header = ({ data }) => {
         <nav className="bg-white border-b border-b-gray-200 dark:border-b-gray-500 dark:bg-gray-900 w-full z-20 top-0 start-0">
             <div className="container-1256 flex flex-wrap items-center justify-between mx-auto p-4 md:py-4 md:px-0">
                 <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src={`${PORT}/${data?.logoWeb?.url}`} style={{ height: '72px', width: 'auto' }} className="h-8 hidden md:block" alt="Flowbite Logo" />
-                    <img src="/SYNERGI-LOGO-2.svg" style={{ height: '56px', width: 'auto' }} className="h-8 block md:hidden" alt="Flowbite Logo" />
+                    <img src={data?.logoWeb?.url} style={{ height: '72px', width: 'auto' }} className="h-8 hidden md:block" alt="Flowbite Logo" />
+                    <img src={data?.logoMobile?.url} style={{ height: '56px', width: 'auto' }} className="h-8 block md:hidden" alt="Flowbite Logo" />
                 </Link>
                 <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-2">
                     <button onClick={toggleTheme} type="button" className="cursor-pointer justify-center h-11 w-11 transition text-gray-700 hover:text-gray-700 hover:bg-gray-100  dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-100 font-medium rounded-full text-sm p-2 text-center inline-flex items-center group">

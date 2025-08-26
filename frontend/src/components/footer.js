@@ -16,7 +16,7 @@ export const Footer = ({ data }) => {
         <div className="border-t-1 border-t-gray-200 dark:border-t-gray-500">
             <div className='container-1256'>
                 <div className="pt-10 md:pt-20 px-4 md:px-0 flex flex-col gap-6">
-                    <img style={{ height: '120px', width: '120px' }} src={`${PORT}/${data?.logo?.url}`} />
+                    <img style={{ height: '120px', width: '120px' }} src={data?.logo?.url} />
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full flex gap-4">
                             {socials.map((social, index) => (
