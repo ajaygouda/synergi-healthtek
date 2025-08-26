@@ -16,7 +16,7 @@ const Hero = ({ slider }) => {
                     <div className="w-full">
                         <div className="relative w-full h-[250px] md:h-[384px]">
                             <Image
-                                src="/hero.png"
+                                src={item?.image}
                                 alt="Hero"
                                 fill
                                 priority
