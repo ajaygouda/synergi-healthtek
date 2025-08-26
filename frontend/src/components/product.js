@@ -6,7 +6,7 @@ const Product = ({ type, product }) => {
     return (
         <Link href={`/products/${product.slug}_${product.id}`} className={`${type === "border" ? "border-1 dark:border-0" : ""} w-full cursor-pointer md:w-[calc(25%-18px)] bg-white text-gray-200 flex flex-col rounded-[12px] items-center p-4`}>
             <div className='h-[196px] flex items-center'>
-                <img width="196px" src={`http://localhost:1337${product.images[0].url}`} />
+                <img width="196px" src={product?.images && product?.images[0]?.url} />
             </div>
             <div className='mt-6'>
                 <p className='uppercase text-xs font-bold text-gray-400 tracking-widest'>{product.category.name}</p>

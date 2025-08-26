@@ -13,7 +13,7 @@ export default async function Home() {
         <div>
             <Hero slider={data.heroSlider} />
             <Experience sectionTitle={data.experienceHeading} experiences={data.experiences} />
-            <FeaturedProduct sectionTitle={data.featuredProductsHeading} featuredProducts={data.featuredProducts} featuredCategories={data.featuredCategories} />
+            <FeaturedProduct sectionTitle={data.featuredProductsHeading} featuredCategories={data.featuredCategories} />
             <Testimonial sectionTitle={data.testimonialsHeading} testimonials={data.testimonials} />
         </div>
     );

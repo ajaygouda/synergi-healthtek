@@ -27,6 +27,10 @@ const CommonService = {
         return await http.get(Endpoints.BASE_URL, Endpoints.Common.getFooter)
     },
 
+    getProducts: async () => {
+        return await http.get(Endpoints.BASE_URL, Endpoints.Common.getProducts)
+    }
+
 }
 
 export default CommonService

@@ -34,7 +34,6 @@ const Cart = () => {
         paymentMethod: ""
     })
 
-
     useEffect(() => {
         triggerRefresh();
         setSelectedAddress(customer?.addresses?.[0]?.documentId || null)
@@ -54,7 +53,6 @@ const Cart = () => {
             paymentMethod: selectedPayment === 0 ? "cod" : 'online'
         })
     }, [customer, selectedAddress, selectedPayment])
-
 
     const handleCheckout = async () => {
         try {
@@ -99,7 +97,7 @@ const Cart = () => {
                                 {customer?.cart_items?.map((item, index) => (
                                     <Link href={`/products/${item.product.slug}_${item.product.id}`} key={index} className={`flex gap-6 p-4 flex-col md:flex-row flex-wrap w-full ${customer.cart_items.length - 1 === index || customer.cart_items.length === 0 ? "" : "border-b border-b-gray-200 "}`}>
                                         <div className='w-24 h-24'>
-                                            <img className='rounded-[8px]' src={`http://localhost:1337${item.product?.images[0].url}`} />
+                                            <img className='rounded-[8px]' src={`${item.product?.images && item.product?.images[0].url}`} />
                                         </div>
                                         <div className='flex flex-1 justify-between items-center'>
                                             <div className='w-[50%]'>

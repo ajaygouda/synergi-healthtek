@@ -6,6 +6,10 @@ const AuthenticatedService = {
         return await http.get(Endpoints.BASE_URL, Endpoints.Authenticated.getCustomerById, id)
     },
 
+    updateCustomer: async (id, payload) => {
+        return await http.put(Endpoints.BASE_URL, Endpoints.Authenticated.updateCartitem, id, payload)
+    },
+
     postAddress: async (payload) => {
         return await http.post(Endpoints.BASE_URL, Endpoints.Authenticated.postAddress, payload)
     },

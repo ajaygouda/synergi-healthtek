@@ -4,12 +4,13 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/api/context/auth-context';
 import { useCustomer } from '@/api/context/customer-context';
+import AuthService from '@/api/auth.service';
 
 const Login = () => {
     const [serverError, setServerError] = useState('');
     const router = useRouter();
     const { auth, setAuth, logout } = useAuth();
-    const { cartitems, handleRemoveItem } = useCustomer();
+    const { cartitems, triggerRefresh, handleRemoveItem } = useCustomer();
     const [formData, setFormData] = useState({
         identifier: "",
         password: "",
@@ -62,12 +63,7 @@ const Login = () => {
 
             let postData = { ...formData };
             delete postData.conformPassword;
-            const res = await fetch(`http://localhost:1337/api/auth/local`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(postData)
-            })
-            const result = await res.json();
+            const result = await AuthService.login(postData)
 
             const customerRes = await fetch(`http://localhost:1337/api/customers?filters[user][id][$eq]=${result.user.id}`, {
                 headers: {
@@ -77,12 +73,16 @@ const Login = () => {
 
             const customerData = await customerRes.json();
 
-            if (!res.ok) {
+            if (!result.jwt) {
                 setServerError(result.error.message || "Login failed");
                 return;
             }
+            const authData = { ...result, customer: customerData.data[0] };
+            
+            localStorage.setItem("auth", JSON.stringify(authData));
+            setAuth(authData);
+            triggerRefresh();
 
-            setAuth({ ...result, customer: customerData.data[0] });
             if (cartitems?.length > 0) {
                 router.push("/cart")
             }

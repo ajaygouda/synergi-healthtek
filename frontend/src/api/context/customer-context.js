@@ -20,7 +20,7 @@ export const CustomerProvider = ({ children }) => {
                 const localStorageData = localStorage.getItem("auth");
                 if (!localStorageData) return;
                 const parsed = JSON.parse(localStorageData);
-                const res = await AuthenticatedService.getCustomerById(parsed.customer.documentId)
+                const res = await AuthenticatedService.getCustomerById(parsed.customer.documentId);
                 setCustomer(res.data);
             }
             catch (err) {
@@ -37,7 +37,6 @@ export const CustomerProvider = ({ children }) => {
         const ls = localStorage.getItem("auth");
         const lsData = JSON.parse(ls);
         if (ls) {
-
             try {
                 // 1. Fetch existing cart items for customer
                 const res = await AuthenticatedService.getCartItemsByCustomerId(lsData.customer.id)
@@ -91,7 +90,7 @@ export const CustomerProvider = ({ children }) => {
             }
         }
         else {
-
+            route.push('/auth/login')
         }
     };
 

@@ -60,7 +60,7 @@ export const ProductDetails = ({ product }) => {
                     {product.images.map((img, index) => (
                         <img
                             key={index}
-                            src={`http://localhost:1337${img.url}`}
+                            src={img.url}
                             alt={`Product Image ${index + 1}`}
                             className="mb-2 rounded h-full"
                         />

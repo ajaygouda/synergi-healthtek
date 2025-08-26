@@ -65,7 +65,6 @@ const Signup = () => {
     }
 
     const handleSignup = async (e) => {
-        debugger
         e.preventDefault();
         setServerError("");
         try {

@@ -1,50 +1,19 @@
 "use client"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProfileAccount from "./profile-account";
 import ProfileAddress from "./profile-address";
 import ProfileOrders from "./profile-orders";
-import CommonService from "@/api/common.service";
+import { useCustomer } from '@/api/context/customer-context';
 
 const profilemenus = [{ id: 0, name: "Account" }, { id: 1, name: "Addreses" }, { id: 2, name: "Orders" }];
 
-const Profile = ({ customers }) => {
+const Profile = () => {
     const [active, setActive] = useState(profilemenus[0]);
-    const [customer, setCustomer] = useState();
-
-    useEffect(() => {
-        const fetchCustomer = async () => {
-            const localStorageData = localStorage.getItem("auth");
-            if (!localStorageData) return;
-
-            const parsed = JSON.parse(localStorageData);
-            const res = await fetch(`http://localhost:1337/api/customers/${parsed.customer.documentId}?populate[addresses][populate]&populate[user][populate]&populate[cart_items][populate]`);
-            const data = await res.json();
-            setCustomer(data.data);
-        };
-
-        fetchCustomer();
-    }, []);
-
-    // useEffect(() => {
-    //     async function fetchProducts() {
-    //         try {
-    //             const response = await CommonService.getHomePage();
-    //             if (response) {
-    //                 console.log("useEffect", response)
-    //             }
-    //         } catch (err) {
-    //             console.log("Failed to fetch products");
-    //         }
-    //     };
-
-    //     fetchProducts();
-    // }, []);
+    const { customer, triggerRefresh, handleRemoveItem } = useCustomer();
 
     const HandleFilter = (obj) => {
         setActive(obj)
     }
-
-    console.log("customer", customer)
 
     return (
         <div className="container-1256">

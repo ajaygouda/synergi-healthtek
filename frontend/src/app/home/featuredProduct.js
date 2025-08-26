@@ -1,16 +1,32 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Product from '@/components/product';
+import CommonService from "@/api/common.service";
 
-export const FeaturedProduct = ({ sectionTitle, featuredCategories, featuredProducts }) => {
-    const [rowData, setRowData] = useState(featuredProducts);
+export const FeaturedProduct = ({ sectionTitle, featuredCategories }) => {
+    const [rawData, setRawData] = useState([]);
+    const [rowData, setRowData] = useState([]);
     const [active, setActive] = useState(0);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const products = await CommonService.getProducts();
+                setRawData(products.data)
+                setRowData(products.data); 
+            } catch (err) {
+                console.error("Error fetching products:", err);
+            }
+        };
+
+        fetchProducts();
+    }, []);
 
     const HandleFilter = (event) => {
         let key = +event.target.value;
         setActive(key);
         setRowData(
-            key !== 0 ? featuredProducts.filter((item) => item.category.id === key) : featuredProducts
+            key !== 0 ? rawData.filter((item) => item.category.id === key) : rawData
         )
     }
 
@@ -33,7 +49,7 @@ export const FeaturedProduct = ({ sectionTitle, featuredCategories, featuredProd
                 </div>
 
                 <div className='flex flex-wrap flex-col md:flex-row gap-4 md:gap-6 mt-5 md:mt-10'>
-                    {rowData?.slice(0, 4).map((product, index) => (
+                    {rowData?.length > 0 && rowData?.slice(0, 4).map((product, index) => (
                         <Product key={index} type="border" product={product} />
                     ))}
                 </div>

@@ -16,11 +16,12 @@ const Endpoints = {
     Auth: {
         register: "/api/auth/local/register",
         login: "/api/auth/local",
+        updateUser: "/api/users/{0}"
     },
 
     Authenticated: {
-        getCustomerById: "/api/customers/{0}?populate[addresses][populate]=*&populate[user][populate]=*&populate[cart_items][populate][product][populate]=images",
-
+        getCustomerById: "/api/customers/{0}?populate[addresses][populate]=*&populate[user][populate]=*&populate[orders][populate][shippingAddress][populate]=*&populate[orders][populate][products][populate][product][populate]images=*&populate[cart_items][populate][product][populate]images=*",
+        updateCustomer: "/api/customers/{0}",
         postAddress: "/api/addresses/{0}",
         updateAddress: "/api/addresses/{0}",
         deleteAddress: "/api/addresses/{0}",
