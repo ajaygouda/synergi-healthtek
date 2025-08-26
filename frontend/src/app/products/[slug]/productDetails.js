@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Count } from '@/components/count';
 import { useCustomer } from '@/api/context/customer-context'
 import Link from 'next/link'
-const PORT = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+const PORT = process.env.NEXT_PUBLIC_API_URL;
 export const ProductDetails = ({ product }) => {
     const [qty, setQty] = useState(1);
     const { handleAddtocart } = useCustomer();

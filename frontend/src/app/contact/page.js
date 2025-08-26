@@ -1,6 +1,6 @@
 import { Address } from "./address";
 import { Contactform } from "./contact.form";
-const PORT = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+const PORT = process.env.NEXT_PUBLIC_API_URL;
 
 export const Contact = async () => {
     const apiData = await fetch(`${PORT}/api/contact-page?populate[address][populate][emails]=true&populate[address][populate][phones]=true`);

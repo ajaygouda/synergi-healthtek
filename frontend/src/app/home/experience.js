@@ -1,5 +1,5 @@
 "use client"
-const PORT = process.env.STRAPI_API_URL;
+const PORT = process.env.NEXT_PUBLIC_API_URL;
 export const Experience = ({ sectionTitle, experiences }) => {
     return (
         <div className='container-1256'>
@@ -10,7 +10,7 @@ export const Experience = ({ sectionTitle, experiences }) => {
                 <div className='flex flex-col md:flex-row gap-4 md:gap-6 w-full'>
                     {experiences?.map((experience, index) => (
                         <div key={index} className={`${index === 0 ? "bg-primary-100" : index === 1 ? "bg-secondary-100" : "bg-success-100"} w-full rounded-[16px] p-6 text-center items-center flex flex-col justify-center`}>
-                            <img width="96px" src={`${PORT}${experience.image.url}`} alt="ISO Certificate" />
+                            <img width="96px" src={`${PORT}/${experience.image.url}`} alt="ISO Certificate" />
                             <h3 className="mt-4 text-lg font-semibold text-[24px] dark:text-gray-900">{experience.title}</h3>
                             <p className="mt-2 text-gray-700">{experience.description}</p>
                         </div>

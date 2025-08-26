@@ -1,4 +1,4 @@
-const PORT = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+const PORT = process.env.NEXT_PUBLIC_API_URL;
 export const Career = async () => {
     const apiData = await fetch(`${PORT}/api/career-page?populate=*`);
     const jsonData = await apiData.json();

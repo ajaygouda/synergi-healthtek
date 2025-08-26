@@ -1,6 +1,6 @@
 
 import {ProductDetails} from './productDetails';
-const PORT = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+const PORT = process.env.NEXT_PUBLIC_API_URL;
 const fetchData = async (id) => {
   try {
     const apiData = await fetch(`${PORT}/api/products?filters[id][$eq]=${id}&populate=*`);

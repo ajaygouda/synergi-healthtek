@@ -1,5 +1,5 @@
 import { ProductsClient } from './productsClient';
-const PORT = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+const PORT = process.env.NEXT_PUBLIC_API_URL;
 const fetchData = async () => {
     try {
         let [apiProductsPage, apiProducts, apiCategories] = await Promise.all([

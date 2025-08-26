@@ -12,7 +12,7 @@ const ProfileAddress = ({ customerData }) => {
 
     const handleDelete = async (item) => {
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/addresses/${item.documentId}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/addresses/${item.documentId}`, {
                 method: "DELETE",
             });
 

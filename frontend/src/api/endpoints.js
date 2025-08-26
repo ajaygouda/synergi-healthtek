@@ -1,5 +1,5 @@
 const Endpoints = {
-    BASE_URL: process.env.NEXT_PUBLIC_STRAPI_API_URL || "",
+    BASE_URL: process.env.NEXT_PUBLIC_API_URL || "",
 
     Common: {
         getHomePage: "/api/home-page?populate[featuredProducts][populate]=*&populate[heroSlider][populate]=*&populate[experiences][populate]=*&populate[featuredCategories][populate]=*&populate[testimonials][populate]=*",

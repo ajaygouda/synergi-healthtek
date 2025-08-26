@@ -5,7 +5,7 @@ import { useMenu } from '@/api/context/menu-context';
 import { useAuth } from '@/api/context/auth-context';
 import { useState, useRef, useEffect } from 'react';
 import { useCustomer } from "../api/context/customer-context";
-const PORT = process.env.STRAPI_API_URL;
+const PORT = process.env.NEXT_PUBLIC_API_URL;
 
 const menus = [
     "Home", "Products", "About", "Contact", "Support", "Career"
@@ -35,7 +35,7 @@ export const Header = ({ data }) => {
         <nav className="bg-white border-b border-b-gray-200 dark:border-b-gray-500 dark:bg-gray-900 w-full z-20 top-0 start-0">
             <div className="container-1256 flex flex-wrap items-center justify-between mx-auto p-4 md:py-4 md:px-0">
                 <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src={`${PORT}${data?.logoWeb?.url}`} style={{ height: '72px', width: 'auto' }} className="h-8 hidden md:block" alt="Flowbite Logo" />
+                    <img src={`${PORT}/${data?.logoWeb?.url}`} style={{ height: '72px', width: 'auto' }} className="h-8 hidden md:block" alt="Flowbite Logo" />
                     <img src="/SYNERGI-LOGO-2.svg" style={{ height: '56px', width: 'auto' }} className="h-8 block md:hidden" alt="Flowbite Logo" />
                 </Link>
                 <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-2">

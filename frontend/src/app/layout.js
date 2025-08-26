@@ -25,7 +25,7 @@ export const metadata = {
 };
 
 const fetchHeaderFooter = async () => {
-  const PORT = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+  const PORT = process.env.NEXT_PUBLIC_API_URL;
   try {
     const [headerRes, footerRes] = await Promise.all([
       fetch(`${PORT}/api/navigation?populate=*`),

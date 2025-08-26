@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/api/context/auth-context';
-const PORT = process.env.STRAPI_API_URL;
+const PORT = process.env.NEXT_PUBLIC_API_URL;
 
 const Signup = () => {
     const [serverError, setServerError] = useState('');
