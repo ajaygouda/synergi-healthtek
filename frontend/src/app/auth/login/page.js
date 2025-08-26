@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/api/context/auth-context';
 import { useCustomer } from '@/api/context/customer-context';
 import AuthService from '@/api/auth.service';
+const PORT = process.env.STRAPI_API_LOCAL_PORT;
 
 const Login = () => {
     const [serverError, setServerError] = useState('');
@@ -65,7 +66,7 @@ const Login = () => {
             delete postData.conformPassword;
             const result = await AuthService.login(postData)
 
-            const customerRes = await fetch(`http://localhost:1337/api/customers?filters[user][id][$eq]=${result.user.id}`, {
+            const customerRes = await fetch(`${PORT}/api/customers?filters[user][id][$eq]=${result.user.id}`, {
                 headers: {
                     Authorization: `Bearer ${result.jwt}`
                 }

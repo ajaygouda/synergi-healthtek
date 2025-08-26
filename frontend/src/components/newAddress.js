@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from '@/api/context/auth-context';
 import { useToast } from "@/api/context/toast-context";
 import { useCustomer } from '@/api/context/customer-context';
+const PORT = process.env.STRAPI_API_URL;
 
 const NewAddress = ({ address, open, onClose }) => {
     if (!open) return null;
@@ -124,7 +125,7 @@ const NewAddress = ({ address, open, onClose }) => {
         if (address) {
             e.preventDefault()
             try {
-                const res = await fetch(`http://localhost:1337/api/addresses/${address.documentId}`, {
+                const res = await fetch(`${PORT}api/addresses/${address.documentId}`, {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -144,7 +145,7 @@ const NewAddress = ({ address, open, onClose }) => {
             let newAddress = { ...FormData, customer: auth.customer.documentId }
             e.preventDefault()
             try {
-                const res = await fetch(`http://localhost:1337/api/addresses`, {
+                const res = await fetch(`${PORT}api/addresses`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({

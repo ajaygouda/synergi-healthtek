@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/api/context/auth-context';
-const PORT = process.env.STRAPI_API_LOCAL_PORT;
+const PORT = process.env.STRAPI_API_URL;
 
 const Signup = () => {
     const [serverError, setServerError] = useState('');
@@ -73,7 +73,7 @@ const Signup = () => {
             delete postData.phone;
 
             // 1. Register user
-            const res = await fetch(`http://localhost:1337/api/auth/local/register`, {
+            const res = await fetch(`${PORT}/api/auth/local/register`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(postData),
@@ -89,7 +89,7 @@ const Signup = () => {
 
 
             // 2. Create Customer linked to User
-            const customerRes = await fetch("http://localhost:1337/api/customers", {
+            const customerRes = await fetch(`${PORT}/api/customers`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
