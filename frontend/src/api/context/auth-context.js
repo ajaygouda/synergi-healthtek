@@ -7,17 +7,17 @@ import { useRouter } from 'next/navigation'
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState(null);
+    const [auth, setAuth] = useState({});
     const router = useRouter();
 
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
         if (storedUser) {
             try {
-                setAuth(JSON.parse(storedUser));
+                setAuth(JSON.parse(storedUser) || {});
             } catch (err) {
                 console.error("Invalid user JSON", err);
-                setAuth(null);
+                setAuth({});
             }
         }
     }, []);
