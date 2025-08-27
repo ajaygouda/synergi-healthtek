@@ -10,7 +10,7 @@ const PORT = process.env.STRAPI_API_LOCAL_PORT;
 const Login = () => {
     const [serverError, setServerError] = useState('');
     const router = useRouter();
-    const { auth, setAuth, logout } = useAuth();
+    const { auth, setAuth, logout } = useAuth() ?? {};
     const { cartitems, triggerRefresh, handleRemoveItem } = useCustomer();
     const [formData, setFormData] = useState({
         identifier: "",
@@ -79,7 +79,7 @@ const Login = () => {
                 return;
             }
             const authData = { ...result, customer: customerData.data[0] };
-            
+
             localStorage.setItem("auth", JSON.stringify(authData));
             setAuth(authData);
             triggerRefresh();

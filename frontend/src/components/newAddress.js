@@ -9,7 +9,7 @@ const PORT = process.env.NEXT_PUBLIC_API_URL;
 const NewAddress = ({ address, open, onClose }) => {
     if (!open) return null;
     const [errors, setErrors] = useState({});
-    const { auth, setAuth, logout } = useAuth();
+    const { auth, setAuth, logout } = useAuth() ?? {};
     const [editError, setEditError] = useState(false);
     const { toastTrigger } = useToast();
     const { customer, triggerRefresh, handleRemoveItem } = useCustomer();

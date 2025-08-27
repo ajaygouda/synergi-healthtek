@@ -9,7 +9,7 @@ const PORT = process.env.NEXT_PUBLIC_API_URL;
 const Signup = () => {
     const [serverError, setServerError] = useState('');
     const router = useRouter();
-    const { auth, setAuth, logout } = useAuth();
+    const { auth, setAuth, logout } = useAuth() ?? {};
     const [formData, setformData] = useState({
         username: "",
         email: "",
@@ -112,7 +112,7 @@ const Signup = () => {
             const result = await customerRes.json();
             if (result) {
                 setAuth({ ...userData, customer: result.data });
-                
+
             }
 
             if (!customerRes.ok) {

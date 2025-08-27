@@ -12,7 +12,7 @@ const menus = [
 ]
 
 export const Header = () => {
-    const { auth, setAuth, logout } = useAuth();
+    const { auth, setAuth, logout } = useAuth() ?? {};
     const { customer } = useCustomer();
     const { theme, toggleTheme } = useTheme();
     const { activeMenu } = useMenu();

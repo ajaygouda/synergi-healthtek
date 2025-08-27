@@ -14,7 +14,7 @@ const paymentOptions = [{ id: 0, name: "Cash on Delivery", label: "cod" }, { id:
 
 const Cart = () => {
     const router = useRouter();
-    const { auth, setAuth, logout } = useAuth();
+    const { auth, setAuth, logout } = useAuth() ?? {};
     const { customer, triggerRefresh, handleRemoveItem } = useCustomer();
     const { toastTrigger } = useToast();
     const [activeStep, setActiveStep] = useState(steps[0]);
