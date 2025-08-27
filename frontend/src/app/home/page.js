@@ -11,10 +11,10 @@ export default async function Home() {
 
     return (
         <div>
-            <Hero slider={data.heroSlider} />
-            <Experience sectionTitle={data.experienceHeading} experiences={data.experiences} />
-            <FeaturedProduct sectionTitle={data.featuredProductsHeading} featuredCategories={data.featuredCategories} />
-            <Testimonial sectionTitle={data.testimonialsHeading} testimonials={data.testimonials} />
+            <Hero slider={data?.heroSlider} />
+            <Experience sectionTitle={data.experienceHeading} experiences={data?.experiences} />
+            <FeaturedProduct sectionTitle={data?.featuredProductsHeading} featuredCategories={data?.featuredCategories} />
+            <Testimonial sectionTitle={data?.testimonialsHeading} testimonials={data?.testimonials} />
         </div>
     );
 }

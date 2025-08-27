@@ -9,9 +9,9 @@ export const Career = async () => {
             <div className="bg-gray-100 dark:bg-gray-600">
                 <div className="container-1256 py-10 px-4 md:px-0">
                     <div className="w-full md:w-[60%]">
-                        <h5 className="uppercase tracking-widest text-[16px] font-medium mb-4">{careerPage.pageName}</h5>
-                        <h1 className="font-goodTime w-[500px] leading-[36px] text-[28px] md:leading-[64px] md:text-[56px] mb-2">{careerPage.title}</h1>
-                        <p>{careerPage.description}</p>
+                        <h5 className="uppercase tracking-widest text-[16px] font-medium mb-4">{careerPage?.pageName}</h5>
+                        <h1 className="font-goodTime w-[500px] leading-[36px] text-[28px] md:leading-[64px] md:text-[56px] mb-2">{careerPage?.title}</h1>
+                        <p>{careerPage?.description}</p>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@ export const Career = async () => {
                 <div className="container-1256 py-10 px-4 md:px-0">
                     <div className="flex flex-col gap-10">
                         <div className="flex flex-col">
-                            {careerPage.jobs.map((job, index) => (
+                            {careerPage?.jobs?.map((job, index) => (
                                 <a href="" key={job.id} className="border-b py-6 dark:border-gray-400 border-gray-200 hover:border-gray-700 hover:dark:border-gray-200">
                                     <h5 className="font-bold text-[20px] mb-4 dark:text-gray-100">{job.title}</h5>
                                     <p className="text-gray-500 dark:text-gray-200">{job.shortDescription}</p>

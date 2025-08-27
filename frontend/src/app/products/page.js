@@ -23,8 +23,8 @@ export const Products = async () => {
                 <div className="container-1256 py-10 px-4 md:px-0">
                     <div className="w-full md:w-[80%]">
                         <h5 className="uppercase tracking-widest text-[16px] font-medium mb-4">{productsPage?.pageName}</h5>
-                        <h1 className="font-goodTime leading-[36px] text-[28px] md:leading-[72px] md:text-[56px] mb-2">{productsPage.title}</h1>
-                        <p className="text-gray-500 dark:text-gray-200">{productsPage.subTitle}</p>
+                        <h1 className="font-goodTime leading-[36px] text-[28px] md:leading-[72px] md:text-[56px] mb-2">{productsPage?.title}</h1>
+                        <p className="text-gray-500 dark:text-gray-200">{productsPage?.subTitle}</p>
                     </div>
                 </div>
             </div>
