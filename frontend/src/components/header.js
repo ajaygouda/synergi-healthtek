@@ -37,7 +37,7 @@ export const Header = () => {
             try {
                 const headerRes = await fetch(`${PORT}/api/navigation?populate=*`);
                 const res = await headerRes.json();
-                setData(res)
+                setData(res.data)
             }
             catch (err) {
 

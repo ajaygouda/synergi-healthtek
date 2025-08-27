@@ -20,7 +20,7 @@ export const Footer = () => {
             try {
                 const footerRes = await fetch(`${PORT}/api/footer?populate[logo]=true&populate[socials]=true&populate[menus]=true&populate[address][populate][emails]=true&populate[address][populate][phones]=true`);
                 const res = await footerRes.json();
-                setData(res)
+                setData(res.data)
             }
             catch (err) {
 
