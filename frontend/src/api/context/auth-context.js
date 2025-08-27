@@ -12,7 +12,12 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         let storedUser = localStorage.getItem("auth");
-        setAuth(JSON.parse(storedUser))
+        if (storedUser) {
+            setAuth(storedUser ? JSON.parse(storedUser) : null);
+        }
+        else {
+            setAuth(null);
+        }
     }, [])
 
     useEffect(() => {
