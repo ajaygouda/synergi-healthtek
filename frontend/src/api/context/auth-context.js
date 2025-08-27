@@ -3,10 +3,10 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { useRouter } from 'next/navigation';
 
-const AuthContext = createContext<any>(null);
+const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState<any>(null);
+    const [auth, setAuth] = useState(null);
     const router = useRouter();
 
     useEffect(() => {
