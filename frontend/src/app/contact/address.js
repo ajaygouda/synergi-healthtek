@@ -17,7 +17,7 @@ export const Address = ({ data }) => {
                 </div>
                 <div>
                     <h5 className="font-bold text-[20px]">Address</h5>
-                    <p>{`${data.address}, Pincode-${data.postalCode}, ${data.city}, ${data.state}, ${data.country}`}</p>
+                    <p>{`${data?.address}, Pincode-${data?.postalCode}, ${data?.city}, ${data?.state}, ${data?.country}`}</p>
                 </div>
             </div>
             <div className="mb-4">
@@ -28,7 +28,7 @@ export const Address = ({ data }) => {
                     <h5 className="font-bold text-[20px]">Email</h5>
                     <p>
                         {data?.emails?.map((mail, index) => (
-                            <span key={index}>{mail.emailId}{index === data.address?.emails?.length - 1 ? "" : ","}</span>
+                            <span key={index}>{mail.emailId}{index === data?.address?.emails?.length - 1 ? "" : ","}</span>
                         ))}
                     </p>
                 </div>
@@ -41,7 +41,7 @@ export const Address = ({ data }) => {
                     <h5 className="font-bold text-[20px]">Phone</h5>
                     <p>
                         {data?.phones?.map((ph, index) => (
-                            <span key={index}>{ph.number}{index === data.address?.phones?.length - 1 ? "" : ","}</span>
+                            <span key={index}>{ph.number}{index === data?.address?.phones?.length - 1 ? "" : ","}</span>
                         ))}
                     </p>
                 </div>
