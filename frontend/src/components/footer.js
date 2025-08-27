@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link'
 import { useMenu } from '../api/context/menu-context';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 const PORT = process.env.NEXT_PUBLIC_API_URL;
 
 const socials = [
