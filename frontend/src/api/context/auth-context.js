@@ -11,14 +11,16 @@ export const AuthProvider = ({ children }) => {
     const router = useRouter();
 
     useEffect(() => {
-        let storedUser = localStorage.getItem("auth");
+        const storedUser = localStorage.getItem("user");
         if (storedUser) {
-            setAuth(storedUser ? JSON.parse(storedUser) : null);
+            try {
+                setAuth(JSON.parse(storedUser));
+            } catch (err) {
+                console.error("Invalid user JSON", err);
+                setAuth(null);
+            }
         }
-        else {
-            setAuth(null);
-        }
-    }, [])
+    }, []);
 
     useEffect(() => {
         if (auth) {
