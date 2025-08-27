@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState(null);
+    const [auth, setAuth] = useState <any> (null);
     const router = useRouter();
 
     useEffect(() => {
@@ -28,9 +28,9 @@ export const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext value={{ auth, setAuth, logout }}>
+        <AuthContext.Provider value={{ auth, setAuth, logout }}>
             {children}
-        </AuthContext>
+        </AuthContext.Provider >
 
     )
 }
