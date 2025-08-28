@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { ProductsClient } from './productsClient';
 const PORT = process.env.STRAPI_API_URL;
 
