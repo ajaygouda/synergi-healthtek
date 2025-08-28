@@ -1,10 +1,11 @@
 const ProfileOrders = ({ customerData }) => {
+    console.log("customerData", customerData)
     return (
         <div className="w-[100%]">
             <div className="flex justify-between mb-6">
                 <h5 className="text-gray-700 font-bold text-[24px]">Orders</h5>
             </div>
-            {customerData.orders.map((order, index) => (
+            {customerData?.orders?.map((order, index) => (
                 <div key={index} className="border-1 border-gray-200 rounded-[4px] mb-6 rounded-[16px]">
                     <div className="p-6 border-b-1 border-gray-200">
                         <div className="flex justify-between pb-3"><span className="font-bold flex gap-6"><span>Order: #{order.id}</span> <span className="font-bold">Total Amount: {order.totalAmount}</span></span><span className="font-bold">Status: {order.orderStatus}</span></div>
@@ -20,7 +21,7 @@ const ProfileOrders = ({ customerData }) => {
                             </div>
                         </div>
                     </div>
-                    {order.products.map((item, index) => (
+                    {order?.products?.map((item, index) => (
                         <div key={index} className={`flex gap-4 p-6 border-gray-200 ${order.products.length - 1 === index ? "" : "border-b-1"}`}>
                             <img className="h-18 w-18 border-1 border-gray-200 rounded-[8px]" src={item.product.images[0].url} />
                             <div>

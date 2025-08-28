@@ -14,7 +14,7 @@ const paymentOptions = [{ id: 0, name: "Cash on Delivery", label: "cod" }, { id:
 
 const Cart = () => {
     const router = useRouter();
-    const { auth, setAuth, logout } = useAuth() ?? {};
+    const { auth, setAuth, logout } = useAuth();
     const { customer, triggerRefresh, handleRemoveItem } = useCustomer();
     const { toastTrigger } = useToast();
     const [activeStep, setActiveStep] = useState(steps[0]);
@@ -41,7 +41,7 @@ const Cart = () => {
 
     useEffect(() => {
         setForm({
-            products: customer?.cart_items.map(({ product, quantity }) => ({
+            products: customer?.cart_items?.map(({ product, quantity }) => ({
                 product: product.documentId,
                 quantity: quantity
             })),
@@ -53,6 +53,8 @@ const Cart = () => {
             paymentMethod: selectedPayment === 0 ? "cod" : 'online'
         })
     }, [customer, selectedAddress, selectedPayment])
+
+    console.log("customer", customer)
 
     const handleCheckout = async () => {
         try {
@@ -81,8 +83,8 @@ const Cart = () => {
             <div className="flex flex-row md-flex-col gap-10 my-5 dark:text-gray-200">
                 <div className={`${customer?.cart_items?.length > 0 ? " w-[65%]" : "w-full"} flex flex-col gap-6`}>
                     <div>
-                        <div className={`${customer?.cart_items.length === 0 ? "rounded-b-none" : ""} border border-gray-100 dark:border-gray-500 md:border-gray-200 rounded-[16px] flex-col md:flex-row flex-wrap w-full`}>
-                            <div className={`flex justify-between px-4 py-2 items-center ${customer?.cart_items.length === 0 || activeStep.step !== 1 ? "" : "border-b border-gray-200"}`}>
+                        <div className={`${customer?.cart_items?.length === 0 ? "rounded-b-none" : ""} border border-gray-100 dark:border-gray-500 md:border-gray-200 rounded-[16px] flex-col md:flex-row flex-wrap w-full`}>
+                            <div className={`flex justify-between px-4 py-2 items-center ${customer?.cart_items?.length === 0 || activeStep.step !== 1 ? "" : "border-b border-gray-200"}`}>
                                 <div className='flex gap-2'>
                                     {/* <div className={`${activeStep.step === 1 ? "bg-primary-500 text-white" : "bg-gray-100 text-primary-500"} h-6 w-6  rounded-[4px] flex justify-center items-center`}>1</div> */}
                                     <h5 className='uppercase font-bold text-gray-400 tracking-wide'>Cart</h5>
@@ -130,8 +132,8 @@ const Cart = () => {
                     {customer?.cart_items?.length > 0 &&
 
                         <div>
-                            <div className={`${customer?.addresses.length === 0 ? "rounded-b-none" : ""} border border-gray-100 dark:border-gray-500 md:border-gray-200 rounded-[16px] flex-col md:flex-row flex-wrap w-full`}>
-                                <div className={`flex justify-between px-4 py-2 items-center ${customer?.addresses.length === 0 ? "" : "border-b border-gray-200"}`}>
+                            <div className={`${customer?.addresses?.length === 0 ? "rounded-b-none" : ""} border border-gray-100 dark:border-gray-500 md:border-gray-200 rounded-[16px] flex-col md:flex-row flex-wrap w-full`}>
+                                <div className={`flex justify-between px-4 py-2 items-center ${customer?.addresses?.length === 0 ? "" : "border-b border-gray-200"}`}>
                                     <div className='flex gap-2'>
                                         {/* <div className={`${activeStep.step === 2 ? "bg-primary-500 text-white" : "bg-gray-100 text-primary-500"} h-6 w-6  rounded-[4px] flex justify-center items-center`}>2</div> */}
                                         <h5 className='uppercase font-bold text-gray-400 tracking-wide'>Delevery Address</h5>
@@ -142,7 +144,7 @@ const Cart = () => {
                                 </div>
 
                                 <div className='w-full flex flex-col'>
-                                    {customer?.addresses.map((item, index) => (
+                                    {customer?.addresses?.map((item, index) => (
                                         <label
                                             key={index}
                                             onClick={() => setSelectedAddress(item.documentId)}
@@ -193,8 +195,8 @@ const Cart = () => {
                     {customer?.cart_items?.length > 0 &&
 
                         <div>
-                            <div className={`${customer?.addresses.length === 0 ? "rounded-b-none" : ""} border border-gray-100 dark:border-gray-500 md:border-gray-200 rounded-[16px] flex-col md:flex-row flex-wrap w-full`}>
-                                <div className={`flex justify-between px-4 py-2 items-center ${customer?.addresses.length === 0 ? "" : "border-b border-gray-200"}`}>
+                            <div className={`${customer?.addresses?.length === 0 ? "rounded-b-none" : ""} border border-gray-100 dark:border-gray-500 md:border-gray-200 rounded-[16px] flex-col md:flex-row flex-wrap w-full`}>
+                                <div className={`flex justify-between px-4 py-2 items-center ${customer?.addresses?.length === 0 ? "" : "border-b border-gray-200"}`}>
                                     <div className='flex items-center gap-2 h-[36px]'>
                                         {/* <div className={`${activeStep.step === 3 ? "bg-primary-500 text-white" : "bg-gray-100 text-primary-500"} h-6 w-6  rounded-[4px] flex justify-center items-center`}>3</div> */}
                                         <h5 className='uppercase font-bold text-gray-400 tracking-wide'>Payment</h5>

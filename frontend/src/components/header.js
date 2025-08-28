@@ -12,7 +12,7 @@ const menus = [
 ]
 
 export const Header = ({data}) => {
-    const { auth, setAuth, logout } = useAuth() ?? {};
+    const { auth, setAuth, logout } = useAuth();
     const { customer } = useCustomer();
     const { theme, toggleTheme } = useTheme();
     const { activeMenu } = useMenu();
@@ -31,7 +31,7 @@ export const Header = ({data}) => {
         };
     }, []);
 
- 
+   console.log("auth", auth)
     return (
         <nav className="bg-white border-b border-b-gray-200 dark:border-b-gray-500 dark:bg-gray-900 w-full z-20 top-0 start-0">
             <div className="container-1256 flex flex-wrap items-center justify-between mx-auto p-4 md:py-4 md:px-0">

@@ -5,12 +5,12 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/api/context/auth-context';
 import { useCustomer } from '@/api/context/customer-context';
 import AuthService from '@/api/auth.service';
-const PORT = process.env.STRAPI_API_LOCAL_PORT;
+const PORT = process.env.NEXT_PUBLIC_API_URL;
 
 const Login = () => {
     const [serverError, setServerError] = useState('');
     const router = useRouter();
-    const { auth, setAuth, logout } = useAuth() ?? {};
+    const { auth, setAuth, logout } = useAuth();
     const { cartitems, triggerRefresh, handleRemoveItem } = useCustomer();
     const [formData, setFormData] = useState({
         identifier: "",
@@ -61,7 +61,7 @@ const Login = () => {
         e.preventDefault();
         setServerError("")
         try {
-
+            debugger
             let postData = { ...formData };
             delete postData.conformPassword;
             const result = await AuthService.login(postData)
