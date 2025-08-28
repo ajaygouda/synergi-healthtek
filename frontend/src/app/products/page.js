@@ -1,19 +1,25 @@
 import { ProductsClient } from './productsClient';
 const PORT = process.env.STRAPI_API_URL;
+
 const fetchData = async () => {
-    try {
-        let [apiProductsPage, apiProducts, apiCategories] = await Promise.all([
-            await fetch(`${PORT}/api/products-page?populate=*`),
-            await fetch(`${PORT}/api/products?populate=*`),
-            await fetch(`${PORT}/api/categories?populate=*`)
-        ]);
-        let [productsPage, products, categories] = await Promise.all([apiProductsPage.json(), apiProducts.json(), apiCategories.json()])
-        return [productsPage.data, products.data, categories.data]
-    }
-    catch (err) {
-        console.log(err)
-    }
-}
+  try {
+    let [apiProductsPage, apiProducts, apiCategories] = await Promise.all([
+      fetch(`${PORT}/api/products-page?populate=*`, { cache: "no-store" }),
+      fetch(`${PORT}/api/products?populate=*`, { cache: "no-store" }),
+      fetch(`${PORT}/api/categories?populate=*`, { cache: "no-store" }),
+    ]);
+
+    let [productsPage, products, categories] = await Promise.all([
+      apiProductsPage.json(),
+      apiProducts.json(),
+      apiCategories.json(),
+    ]);
+
+    return [productsPage.data, products.data, categories.data];
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export const Products = async () => {
     const [productsPage, products, categories] = await fetchData();
