@@ -18,7 +18,6 @@ export const Header = ({data}) => {
     const { activeMenu } = useMenu();
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef(null);
-   // const [data, setData] = useState()
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -32,20 +31,7 @@ export const Header = ({data}) => {
         };
     }, []);
 
-    // useEffect(() => {
-    //     const fetchHeader = async () => {
-    //         try {
-    //             const headerRes = await fetch(`${PORT}/api/navigation?populate=*`);
-    //             const res = await headerRes.json();
-    //             setData(res.data)
-    //         }
-    //         catch (err) {
-
-    //         }
-    //     }
-    //     fetchHeader();
-    // }, [])
-
+ 
     return (
         <nav className="bg-white border-b border-b-gray-200 dark:border-b-gray-500 dark:bg-gray-900 w-full z-20 top-0 start-0">
             <div className="container-1256 flex flex-wrap items-center justify-between mx-auto p-4 md:py-4 md:px-0">
@@ -85,7 +71,7 @@ export const Header = ({data}) => {
                             </div>
                         </div>
                         :
-                        <Link href={data?.cta?.ctaLink || "/"} type="button" className="cursor-pointer text-white bg-primary hover:bg-primary-600 transition font-medium rounded-full text-base px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700">{data?.cta?.ctaText}</Link>
+                        <Link href={data?.cta?.ctaLink || "/auth/login"} type="button" className="cursor-pointer text-white bg-primary hover:bg-primary-600 transition font-medium rounded-full text-base px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700">{data?.cta?.ctaText}</Link>
                     }
                     <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                         <span className="sr-only">Open main menu</span>

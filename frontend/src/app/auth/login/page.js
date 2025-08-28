@@ -20,7 +20,7 @@ const Login = () => {
 
     useEffect(() => {
         const storedAuth = localStorage.getItem('auth');
-        if (storedAuth) {
+        if (storedAuth && storedAuth !== "{}") {
             router.back()
         }
     }, []);
