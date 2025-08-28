@@ -1,13 +1,82 @@
 @import "tailwindcss";
-@import '../styles/theme/variable.scss';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @font-face {
   font-family: 'GoodTime';
   src: url('/fonts/goodtimingbd.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+}
+
+:root {
+  /* Primary Color */
+  --primary-50: #f0f9ff;
+  --primary-100: #e0f2fe;
+  --primary-200: #bae6fd;
+  --primary-300: #7dd3fc;
+  --primary-400: #38bdf8;
+  --primary-500: #0ea5e9;
+  --primary-600: #0284c7;
+  --primary-700: #0369a1;
+  --primary-800: #075985;
+  --primary-900: #0c4a6e;
+
+  /* Secondary Color */
+  --secondary-50: #fdf4ff;
+  --secondary-100: #fae8ff;
+  --secondary-200: #f5d0fe;
+  --secondary-300: #f0abfc;
+  --secondary-400: #e879f9;
+  --secondary-500: #d946ef;
+  --secondary-600: #c026d3;
+  --secondary-700: #a21caf;
+  --secondary-800: #86198f;
+  --secondary-900: #701a75;
+
+  /* Gray Color */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  /* Success Color */
+  --success-50: #f0fdf4;
+  --success-100: #dcfce7;
+  --success-200: #bbf7d0;
+  --success-300: #86efac;
+  --success-400: #4ade80;
+  --success-500: #22c55e;
+  --success-600: #16a34a;
+  --success-700: #15803d;
+  --success-800: #166534;
+  --success-900: #14532d;
+
+  /* Warning Color */
+  --warning-50: #fffbeb;
+  --warning-100: #fef3c7;
+  --warning-200: #fde68a;
+  --warning-300: #fcd34d;
+  --warning-400: #fbbf24;
+  --warning-500: #f59e0b;
+  --warning-600: #d97706;
+  --warning-700: #b45309;
+  --warning-800: #92400e;
+  --warning-900: #78350f;
+
+  /* Background and Foreground */
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+.dark {
+  --background: var(--gray-900);
+  --foreground: #fff;
 }
 
 @theme inline {
@@ -71,42 +140,32 @@
   --color-warning-800: var(--warning-800);
   --color-warning-900: var(--warning-900);
 
-
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-goodTime: GoodTime, sans-serif;
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-.dark {
-  --background: var(--color-gray-900);
-  --foreground: #fff;
-}
-
-@custom-variant dark (&:where(.dark, .dark *));
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: 'Inter', sans-serif;
+  --font-goodTime: 'GoodTime', sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-@layer components {
-  .container-1256 {
-    @apply max-w-[1256px] mx-auto;
-  }
+.container-1256 {
+  max-width: 1256px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Custom utility classes */
+@utility bg-background {
+  background-color: var(--background);
+}
+
+@utility text-foreground {
+  color: var(--foreground);
 }
