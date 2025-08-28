@@ -55,7 +55,8 @@ export const Header = ({data}) => {
                         <span className='right-1 leading-2 p-2 font-bold top-2 flex items-center justify-center border-2 border-white text-[10px] absolute text-white px-1 h-4.5 bg-amber-700 rounded-full'>{customer?.cart_items?.length ? customer?.cart_items?.length : 0}</span>
                         <svg className="fill-current" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2m-8 4c0 .55-.45 1-1 1s-1-.45-1-1V8h2zm2-6c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2m4 6c0 .55-.45 1-1 1s-1-.45-1-1V8h2z"></path></svg>
                     </Link>
-                    {auth && auth !== "{}" ?
+                    {auth && Object.keys(auth).length > 0 ?
+
                         <div className='flex relative' ref={dropdownRef}>
                             <button onClick={() => setOpen((prev) => !prev)} type="button" className="flex justify-center items-center w-11 h-11 cursor-pointer text-white bg-primary hover:bg-primary-600 transition font-medium rounded-full text-base text-center dark:bg-primary-600 dark:hover:bg-primary-700">{auth?.user?.username?.charAt(0)}</button>
                             <div id="doubleDropdown" className={`${open ? "" : "hidden"} absolute top-11 right-0 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700`}>
