@@ -11,14 +11,14 @@ const menus = [
     "Home", "Products", "About", "Contact", "Support", "Career"
 ]
 
-export const Header = () => {
+export const Header = ({data}) => {
     const { auth, setAuth, logout } = useAuth() ?? {};
     const { customer } = useCustomer();
     const { theme, toggleTheme } = useTheme();
     const { activeMenu } = useMenu();
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef(null);
-    const [data, setData] = useState()
+   // const [data, setData] = useState()
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -32,19 +32,19 @@ export const Header = () => {
         };
     }, []);
 
-    useEffect(() => {
-        const fetchHeader = async () => {
-            try {
-                const headerRes = await fetch(`${PORT}/api/navigation?populate=*`);
-                const res = await headerRes.json();
-                setData(res.data)
-            }
-            catch (err) {
+    // useEffect(() => {
+    //     const fetchHeader = async () => {
+    //         try {
+    //             const headerRes = await fetch(`${PORT}/api/navigation?populate=*`);
+    //             const res = await headerRes.json();
+    //             setData(res.data)
+    //         }
+    //         catch (err) {
 
-            }
-        }
-        fetchHeader();
-    }, [])
+    //         }
+    //     }
+    //     fetchHeader();
+    // }, [])
 
     return (
         <nav className="bg-white border-b border-b-gray-200 dark:border-b-gray-500 dark:bg-gray-900 w-full z-20 top-0 start-0">
