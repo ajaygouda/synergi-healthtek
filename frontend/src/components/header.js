@@ -69,7 +69,7 @@ export const Header = () => {
                         <span className='right-1 leading-2 p-2 font-bold top-2 flex items-center justify-center border-2 border-white text-[10px] absolute text-white px-1 h-4.5 bg-amber-700 rounded-full'>{customer?.cart_items?.length ? customer?.cart_items?.length : 0}</span>
                         <svg className="fill-current" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2m-8 4c0 .55-.45 1-1 1s-1-.45-1-1V8h2zm2-6c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2m4 6c0 .55-.45 1-1 1s-1-.45-1-1V8h2z"></path></svg>
                     </Link>
-                    {auth ?
+                    {auth && Object.keys(auth).length > 0 ?
 
                         <div className='flex relative' ref={dropdownRef}>
                             <button onClick={() => setOpen((prev) => !prev)} type="button" className="flex justify-center items-center w-11 h-11 cursor-pointer text-white bg-primary hover:bg-primary-600 transition font-medium rounded-full text-base text-center dark:bg-primary-600 dark:hover:bg-primary-700">{auth?.user?.username?.charAt(0)}</button>
@@ -85,7 +85,7 @@ export const Header = () => {
                             </div>
                         </div>
                         :
-                        <Link href={data?.cta?.ctaLink} type="button" className="cursor-pointer text-white bg-primary hover:bg-primary-600 transition font-medium rounded-full text-base px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700">{data?.cta?.ctaText}</Link>
+                        <Link href={data?.cta?.ctaLink || "/"} type="button" className="cursor-pointer text-white bg-primary hover:bg-primary-600 transition font-medium rounded-full text-base px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700">{data?.cta?.ctaText}</Link>
                     }
                     <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                         <span className="sr-only">Open main menu</span>

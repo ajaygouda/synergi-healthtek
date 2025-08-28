@@ -13,7 +13,7 @@ const fetchData = async (id) => {
 }
 
 const Page = async ({ params }) => {
-  const { slug } = params;
+  const { slug } = await params;
   const id = slug.split("_")[1];
   const data = await fetchData(id)
 

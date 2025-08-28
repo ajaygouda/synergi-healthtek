@@ -33,10 +33,11 @@ export const CustomerProvider = ({ children }) => {
     const triggerRefresh = () => setRefresh(count => count + 1);
 
     const handleAddtocart = async (product) => {
+        debugger
         // Get logged in customer id from localStorage or your auth system
         const ls = localStorage.getItem("auth");
         const lsData = JSON.parse(ls);
-        if (ls) {
+        if (ls && ls !== "{}") {
             try {
                 // 1. Fetch existing cart items for customer
                 const res = await AuthenticatedService.getCartItemsByCustomerId(lsData.customer.id)

@@ -101,7 +101,7 @@ const Signup = () => {
                         "email": userData.user.email,
                         "phone": formData.phone,
                         "user": userData.user.id,
-                        "addresses": [],
+                        //"addresses": [],
                         //"orders": []
 
                     }

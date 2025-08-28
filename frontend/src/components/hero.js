@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image';
 const Hero = ({ slider }) => {
+    console.log(slider)
     return (
         <div className="bg-gray-100 dark:bg-gray-700">
             {slider?.map((item, index) => (
@@ -15,12 +16,7 @@ const Hero = ({ slider }) => {
                     </div>
                     <div className="w-full">
                         <div className="relative w-full h-[250px] md:h-[384px]">
-                            <Image
-                                src={item?.image}
-                                alt="Hero"
-                                fill
-                                priority
-                            />
+                            <Image src={item?.image?.url} alt="Hero" fill priority />
                         </div>
                     </div>
                 </div>
