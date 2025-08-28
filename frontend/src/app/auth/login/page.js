@@ -61,7 +61,6 @@ const Login = () => {
         e.preventDefault();
         setServerError("")
         try {
-            debugger
             let postData = { ...formData };
             delete postData.conformPassword;
             const result = await AuthService.login(postData)

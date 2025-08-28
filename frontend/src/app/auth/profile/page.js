@@ -1,19 +1,29 @@
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProfileAccount from "./profile-account";
 import ProfileAddress from "./profile-address";
+import { useRouter } from 'next/navigation';
 import ProfileOrders from "./profile-orders";
 import { useCustomer } from '@/api/context/customer-context';
 
 const profilemenus = [{ id: 0, name: "Account" }, { id: 1, name: "Addreses" }, { id: 2, name: "Orders" }];
 
 const Profile = () => {
+    const router = useRouter();
     const [active, setActive] = useState(profilemenus[0]);
     const { customer, triggerRefresh, handleRemoveItem } = useCustomer();
 
     const HandleFilter = (obj) => {
         setActive(obj)
     }
+
+    useEffect(() => {
+        const storedAuth = localStorage.getItem('auth');
+        if (!storedAuth) {
+            router.back()
+        }
+    }, []);
+
 
     return (
         <div className="container-1256">

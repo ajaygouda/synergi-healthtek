@@ -1,14 +1,14 @@
 "use client"
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/api/context/auth-context';
 const PORT = process.env.NEXT_PUBLIC_API_URL;
 
 const Signup = () => {
-    const [serverError, setServerError] = useState('');
     const router = useRouter();
+    const [serverError, setServerError] = useState('');
     const { auth, setAuth, logout } = useAuth();
     const [formData, setformData] = useState({
         username: "",
@@ -17,7 +17,14 @@ const Signup = () => {
         password: "",
         conformPassword: ""
     })
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({});
+
+    useEffect(() => {
+        const storedAuth = localStorage.getItem('auth');
+        if (storedAuth) {
+            router.back()
+        }
+    }, []);
 
     const validateField = (name, value) => {
         let error = "";

@@ -16,7 +16,6 @@ export const CustomerProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchCustomer = async () => {
-            debugger
             try {
                 const localStorageData = localStorage.getItem("auth");
                 if (!localStorageData) return;
