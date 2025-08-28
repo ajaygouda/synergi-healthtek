@@ -10,7 +10,7 @@
   font-style: normal;
 }
 
-@theme inline {
+:root {
   --color-primary: var(--primary-500);
   --color-primary-50: var(--primary-50);
   --color-primary-100: var(--primary-100);
@@ -78,9 +78,9 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-goodTime: GoodTime, sans-serif;
-}
 
-:root {
+
+
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -90,7 +90,7 @@
   --foreground: #fff;
 }
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* @custom-variant dark (&:where(.dark, .dark *)); */
 
 @media (prefers-color-scheme: dark) {
   :root {
